@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using cosmoDB.Models;
-using cosmoDB.Repository;
 using Microsoft.Azure.Cosmos;
 
 namespace cosmoDB.Logic;
