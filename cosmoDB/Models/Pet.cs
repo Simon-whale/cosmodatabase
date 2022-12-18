@@ -2,5 +2,5 @@
 
 public class Pet
 {
-    public string GivenName { get; set; }
+    public string GivenName { get; set; } = "";
 }

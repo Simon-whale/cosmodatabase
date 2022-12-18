@@ -8,6 +8,9 @@ try
     Console.WriteLine("Beginning operations...\n");
     using var db = new DynamoDb();
     await db.GetStartedDemoAsync();
+
+    using var one = new StockRepo();
+    await one.StartDemoAsync();
 }
 catch (CosmosException ex)
 {

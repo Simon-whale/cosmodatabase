@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using cosmoDB.Models;
 using Microsoft.Azure.Cosmos;
 
 namespace cosmoDB.Logic;
@@ -7,8 +6,8 @@ namespace cosmoDB.Logic;
 public abstract class CosmoContext<T> : IDisposable where T : class
 {
     internal readonly CosmosClient _cosmosClient;
-    internal Database _database;
-    internal Container _container;
+    private Database _database;
+    private Container _container;
     
     public CosmoContext()
     {
@@ -87,13 +86,14 @@ public abstract class CosmoContext<T> : IDisposable where T : class
         }
         catch (CosmosException e)
         {
+            Console.WriteLine(e.Message);
             //todo add better handling here
             return false;
         }
         
     }
     
-    public async Task UpdateRecord<T>(string Id, PartitionKey partitionKey, T data) where T : class
+    public async Task UpdateRecord<T>(string Id, PartitionKey partitionKey, T data) 
     {
        await _container.ReplaceItemAsync(data, Id, partitionKey);
     }

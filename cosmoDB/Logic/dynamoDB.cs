@@ -94,7 +94,7 @@ public class DynamoDb : CosmoContext<Family>
         Console.WriteLine(output.ToString());
 
         var response = DeleteItem<Family>("Wakefield.7", new PartitionKey("Wakefield"));
-        await RemoveDatabase();
+        //await RemoveDatabase();
         _cosmosClient.Dispose();
     }
 }
