@@ -1,6 +1,5 @@
 ﻿using Microsoft.Azure.Cosmos;
 using cosmoDB.Logic;
-using Microsoft.Extensions.Hosting;
 
 
 try
